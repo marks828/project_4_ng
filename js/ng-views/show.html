@@ -1,1 +1,17 @@
 <h2>Bet Show</h2>
+
+<p>{{vm.bet.bet}}</p>
+<p>{{vm.bet.amount}}</p>
+<p>{{vm.bet.winner}}</p>
+
+<button data-ng-click="vm.showForm = !vm.showForm">Edit Bet</button>
+<form data-ng-submit="vm.update()" data-ng-if="vm.showForm">
+  <input type="text" value="vm.bet.bet" data-ng-model="vm.bet.bet">
+  <input type="text" value="vm.bet.bet" data-ng-model="vm.bet.amount">
+  <input type="text" value="vm.bet.winner" data-ng-model="vm.bet.winner">
+  <button type="submit">Update</button>
+</form>
+
+<form data-ng-submit="vm.destroy()">
+  <button type="submit" data-ng-submit="vm.destroy()">Delet Bet</button>
+</form>
