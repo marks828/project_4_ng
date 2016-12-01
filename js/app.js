@@ -19,7 +19,10 @@ function betsController (BetsFactory, $state){
   this.bet = new BetsFactory()
   this.create = function(){
     this.bet.$save()
-    $state.go("betIndex")
+    $state.go("betIndex").then(function(){
+        console.log("does this work")
+        $state.reload()
+    });
   }
 }
 function betShowController(BetsFactory, $stateParams, $state){
@@ -28,15 +31,14 @@ function betShowController(BetsFactory, $stateParams, $state){
   this.update = function(){
     this.bet.$update({id: $stateParams.id})
     $state.go("betShow")
+    })
   }
   this.destroy = function(){
     this.bet.$delete({id: $stateParams.id})
     $state.go("betIndex")
+    })
   }
 }
-
-
-
 
 function Router($stateProvider){
   console.log("router working");

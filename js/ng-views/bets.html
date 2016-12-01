@@ -7,13 +7,9 @@
     <th>Winner</th>
   </tr>
   <tr ng-repeat="bet in vm.bets">
-    <td><a data-ui-sref="betShow({id: bet.id})">{{bet.bet}}</a></td>
-    <td>{{bet.amount}}</td>
-  </tr>
-  <tr>
-    <td data-ng-model="vm.bet">{{vm.bet.bet}}</td>
-    <td data-ng-model="vm.bet.amount">{{vm.bet.amount}}<td>
-    <td data-ng-model="vm.bet.winner">{{vm.bet.winner}}</td>
+    <td class="bets"><a data-ui-sref="betShow({id: bet.id})">{{bet.bet}}</a></td>
+    <td class="bets">{{bet.amount}}</td>
+    <td class="bets">{{bet.winner}}</td>
   </tr>
 </table>
 
@@ -22,5 +18,5 @@
 <form data-ng-submit="vm.create()" data-ng-if="vm.showForm">
   <input type="text" data-ng-model="vm.bet.bet">
   <input type="text" data-ng-model="vm.bet.amount">
-  <button type="submit">Place Bet</button>
+  <button>Place Bet</button>
 </form>
