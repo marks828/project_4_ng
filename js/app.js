@@ -27,8 +27,9 @@ function betShowController(BetsFactory, $stateParams, $state){
   this.bet = BetsFactory.get({id: $stateParams.id})
   console.log(this.bet);
   this.update = function(){
-    this.bet.$update({id: $stateParams.id})
-    $state.go("betShow")
+    this.bet.$update({id: $stateParams.id}).then(() => {
+      $state.go("betShow")
+    })
   }
   this.destroy = function(){
     this.bet.$delete({id: $stateParams.id}).then(() => {
